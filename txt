@@ -1,0 +1,14 @@
+Bom após instalar o Next, e depois de deletarmos os arquivos e códigos
+desnecessários para a aplicação, devemos instalar o typescript com o seguinte
+comando:
+
+npm i typescript @types/react 
+
+Feito isso iremos instalar o types node com o:
+
+npm i typescript @types/react @types/node -D
+
+Ou melhor ainda, você já pode instalar estes pacotes de uma só vez rodando o :
+
+npm i typescript @types/react @types/node -D
+
