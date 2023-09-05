@@ -12,3 +12,6 @@ Ou melhor ainda, você já pode instalar estes pacotes de uma só vez rodando o 
 
 npm i typescript @types/react @types/node -D
 
+E depois para estilizarmos, vamos instalar o stitches com o seguinte comando:
+
+npm install @stitches/react
