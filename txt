@@ -15,3 +15,7 @@ npm i typescript @types/react @types/node -D
 E depois para estilizarmos, vamos instalar o stitches com o seguinte comando:
 
 npm install @stitches/react
+
+Para o carrossel, iremos utilizar o seguinte pacote:
+
+npm install keen-slider
