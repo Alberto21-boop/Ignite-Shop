@@ -19,3 +19,7 @@ npm install @stitches/react
 Para o carrossel, iremos utilizar o seguinte pacote:
 
 npm install keen-slider
+
+E para acessar as informações do stripe, vamos instalar o seguinte pacote:
+
+npm install stripe
