@@ -31,7 +31,7 @@ export default function Product({ product }: ProductProps) {
 
       <ProductDetails>
         <h1>{product.name}</h1>
-        <span>R$ {product.price}</span>
+        <span>{product.price}</span>
 
         <p>
           {product.description}
@@ -50,7 +50,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [
       { params: { id: 'prod_OcNR2reGZAnNjm' } }
     ],
-    fallBack: 'blocking',
+    fallback: false,
   }
 }
 
