@@ -24,3 +24,7 @@ npm install keen-slider
 E para acessar as informações do stripe, vamos instalar o seguinte pacote:
 
 npm install stripe
+
+E para o try catch vamos instalar o axios com este comando:
+
+npm install axios

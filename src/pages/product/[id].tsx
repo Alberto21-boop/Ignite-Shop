@@ -4,7 +4,8 @@ import Image from "next/image";
 import Stripe from "stripe";
 import { GetStaticProps } from 'next';
 import { GetStaticPaths } from 'next';
-import { useRouter } from "next/router";
+import axios from "axios";
+import { useState } from "react";
 
 interface ProductProps {
   product: {
@@ -13,14 +14,29 @@ interface ProductProps {
     imageUrl: string;
     price: string;
     description: string;
+    defaultPriceId: string;
   }
 }
 
 export default function Product({ product }: ProductProps) {
-  const { isFallback } = useRouter()
+  const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false)
 
-  if (isFallback) {
-    return <p>Loading ...</p>
+  async function handleBuyProduct() {
+    try {
+      setIsCreatingCheckoutSession(true);
+
+      const response = await axios.post('/api/checkout', {
+        priceId: product.defaultPriceId,
+      })
+
+      const { checkoutUrl } = response.data;
+
+      window.location.href = checkoutUrl
+    } catch (err) {
+      setIsCreatingCheckoutSession(false);
+      // conectar alguma ferramenta como Datadog / Sentry
+      alert('Falha ao redirecionar ao checkout!')
+    }
   }
 
   return (
@@ -37,7 +53,7 @@ export default function Product({ product }: ProductProps) {
           {product.description}
         </p>
 
-        <button>
+        <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}>
           Comprar Agora
         </button>
       </ProductDetails>
@@ -50,7 +66,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: [
       { params: { id: 'prod_OcNR2reGZAnNjm' } }
     ],
-    fallback: false,
+    fallback: true,
   }
 }
 
@@ -84,6 +100,7 @@ export const getStaticProps: GetStaticProps<any, { id: string }> = async ({ para
           currency: 'BRL',
         }).format(price.unit_amount as number / 100),
         description: product.description,
+        defaultPriceId: price.id,
       }
     },
     revalidate: 60 * 60 * 1, // o tempo que queremos salvar esta pagina em cash
