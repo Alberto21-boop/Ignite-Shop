@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+		<Metadata>
+			<Identity Language="en-US" Id="blox" Version="1.0.5" Publisher="vsblox" />
+			<DisplayName>blox</DisplayName>
+			<Description xml:space="preserve">Fast track your workflow with 1500 drop-in-ready code snippets. Support for React, Angular, Vue with TailwindCSS available. Alpine.js, Svelte, Laravel, with Bootstrap and Material UI coming soon. </Description>
+			<Tags>Tailwind CSS,React,Vue,Angular,Bootstrap,bootstrap,javascript,laravel</Tags>
+			<Categories>Programming Languages,Snippets,Themes,Visualization</Categories>
+			<GalleryFlags>Public</GalleryFlags>
+			
+			<Properties>
+				<Property Id="Microsoft.VisualStudio.Code.Engine" Value="^1.60.0" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionDependencies" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionPack" Value="" />
+				<Property Id="Microsoft.VisualStudio.Code.ExtensionKind" Value="workspace" />
+				<Property Id="Microsoft.VisualStudio.Code.LocalizedLanguages" Value="" />
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.Links.Support" Value="https://www.vsblox.com/faq" />
+				<Property Id="Microsoft.VisualStudio.Services.Links.Learn" Value="https://www.vsblox.com/" />
+				
+				
+				<Property Id="Microsoft.VisualStudio.Services.GitHubFlavoredMarkdown" Value="true" />
+				
+				
+			</Properties>
+			
+			<Icon>extension/media/logo.png</Icon>
+		</Metadata>
+		<Installation>
+			<InstallationTarget Id="Microsoft.VisualStudio.Code"/>
+		</Installation>
+		<Dependencies/>
+		<Assets>
+			<Asset Type="Microsoft.VisualStudio.Code.Manifest" Path="extension/package.json" Addressable="true" />
+			<Asset Type="Microsoft.VisualStudio.Services.Content.Details" Path="extension/README.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Content.Changelog" Path="extension/CHANGELOG.md" Addressable="true" />
+<Asset Type="Microsoft.VisualStudio.Services.Icons.Default" Path="extension/media/logo.png" Addressable="true" />
+		</Assets>
+	</PackageManifest>

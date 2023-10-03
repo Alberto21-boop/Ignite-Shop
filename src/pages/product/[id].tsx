@@ -39,6 +39,7 @@ export default function Product({ product }: ProductProps) {
       window.location.href = checkoutUrl;
     } catch (err) {
       setIsCreatingCheckoutSession(false);
+      // console.log(err);
       // conectar alguma ferramenta como Datadog / Sentry
       alert("Falha ao redirecionar ao checkout!");
     }
