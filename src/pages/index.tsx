@@ -1,6 +1,6 @@
 import { HomeContainer, Product } from "@componet/styles/pages/home";
 import Image from "next/image";
-
+import Head from "next/head";
 import { useKeenSlider } from "keen-slider/react";
 
 import "keen-slider/keen-slider.min.css";
@@ -27,32 +27,38 @@ export default function Home({ products }: HomeProps) {
   });
 
   return (
-    <HomeContainer ref={sliderRef} className="keen-slider">
-      {products.map((products) => {
-        return (
-          <Link
-            href={`/product/${products.id}`}
-            key={products.id}
-            legacyBehavior={true}
-            //{prefetch={false}} não me pergunte o porque, mas se eu coloco o prefetch da ruin no link
-          >
-            <Product className="keen-slider__slide">
-              <Image
-                src={products.imageUrl}
-                width={520}
-                height={480}
-                alt="Camisa 1"
-              />
+    <>
+      <Head>
+        <title>Home | Ignite Shop</title>
+      </Head>
 
-              <footer>
-                <strong>{products.name}</strong>
-                <span>{products.price}</span>
-              </footer>
-            </Product>
-          </Link>
-        );
-      })}
-    </HomeContainer>
+      <HomeContainer ref={sliderRef} className="keen-slider">
+        {products.map((products) => {
+          return (
+            <Link
+              href={`/product/${products.id}`}
+              key={products.id}
+              legacyBehavior={true}
+              //{prefetch={false}} não me pergunte o porque, mas se eu coloco o prefetch da ruin no link
+            >
+              <Product className="keen-slider__slide">
+                <Image
+                  src={products.imageUrl}
+                  width={520}
+                  height={480}
+                  alt="Camisa 1"
+                />
+
+                <footer>
+                  <strong>{products.name}</strong>
+                  <span>{products.price}</span>
+                </footer>
+              </Product>
+            </Link>
+          );
+        })}
+      </HomeContainer>
+    </>
   );
 }
 
