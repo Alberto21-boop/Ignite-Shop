@@ -1,30 +1,40 @@
-import { HomeContainer, Product } from "@componet/styles/pages/home";
+import {
+  HomeContainer,
+  Product,
+  SliderContainer,
+} from "@componet/styles/pages/home";
 import Image from "next/image";
 import Head from "next/head";
-import { useKeenSlider } from "keen-slider/react";
-
-import "keen-slider/keen-slider.min.css";
 import { stripe } from "@componet/lib/stripe";
 import { GetStaticProps } from "next";
 import { Stripe } from "stripe";
 import Link from "next/link";
+import useEmblaCarousel from "embla-carousel-react";
+import { CartButton } from "@componet/components/CartButton";
+import { useCart } from "@componet/hooks/useCart";
+import { IProduct } from "@componet/context/CartContext";
+import { MouseEvent } from "react";
 
 interface HomeProps {
-  products: {
-    id: string;
-    name: string;
-    imageUrl: string;
-    price: string;
-  }[];
+  products: IProduct[];
 }
 
 export default function Home({ products }: HomeProps) {
-  const [sliderRef] = useKeenSlider({
-    slides: {
-      perView: 3,
-      spacing: 48,
-    },
+  const [emblaRef] = useEmblaCarousel({
+    align: "start",
+    skipSnaps: false,
+    dragFree: true,
   });
+
+  const { addToCart } = useCart();
+
+  function handleAddToCart(
+    e: MouseEvent<HTMLButtonElement>,
+    product: IProduct
+  ) {
+    e.preventDefault();
+    addToCart(product);
+  }
 
   return (
     <>
@@ -32,32 +42,45 @@ export default function Home({ products }: HomeProps) {
         <title>Home | Ignite Shop</title>
       </Head>
 
-      <HomeContainer ref={sliderRef} className="keen-slider">
-        {products.map((products) => {
-          return (
-            <Link
-              href={`/product/${products.id}`}
-              key={products.id}
-              legacyBehavior={true}
-              //{prefetch={false}} não me pergunte o porque, mas se eu coloco o prefetch da ruin no link
-            >
-              <Product className="keen-slider__slide">
-                <Image
-                  src={products.imageUrl}
-                  width={520}
-                  height={480}
-                  alt="Camisa 1"
-                />
+      <div style={{ overflow: "hidden", width: "100%" }}>
+        <HomeContainer>
+          <div className="embla" ref={emblaRef}>
+            <SliderContainer className="emblar__container container">
+              {products.map((products) => {
+                return (
+                  <Link
+                    href={`/product/${products.id}`}
+                    key={products.id}
+                    legacyBehavior={true}
+                    //{prefetch={false}} não me pergunte o porque, mas se eu coloco o prefetch da ruin no link
+                  >
+                    <Product className="emblar__slide">
+                      <Image
+                        src={products.imageUrl}
+                        width={520}
+                        height={480}
+                        alt="Camisa 1"
+                      />
 
-                <footer>
-                  <strong>{products.name}</strong>
-                  <span>{products.price}</span>
-                </footer>
-              </Product>
-            </Link>
-          );
-        })}
-      </HomeContainer>
+                      <footer>
+                        <div>
+                          <strong>{products.name}</strong>
+                          <span>{products.price}</span>
+                        </div>
+                        <CartButton
+                          color="green"
+                          size="large"
+                          onClick={(e) => handleAddToCart(e, products)}
+                        />
+                      </footer>
+                    </Product>
+                  </Link>
+                );
+              })}
+            </SliderContainer>
+          </div>
+        </HomeContainer>
+      </div>
     </>
   );
 }

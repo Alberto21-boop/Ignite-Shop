@@ -2,7 +2,7 @@ Bom após instalar o Next, e depois de deletarmos os arquivos e códigos
 desnecessários para a aplicação, devemos instalar o typescript com o seguinte
 comando:
 
-npm i typescript @types/react 
+npm i typescript @types/react
 
 Feito isso iremos instalar o types node com o:
 
@@ -11,7 +11,6 @@ npm i typescript @types/react @types/node -D
 Ou melhor ainda, você já pode instalar estes pacotes de uma só vez rodando o :
 
 npm i typescript @types/react @types/node -D
-
 
 E depois para estilizarmos, vamos instalar o stitches com o seguinte comando:
 
@@ -28,3 +27,23 @@ npm install stripe
 E para o try catch vamos instalar o axios com este comando:
 
 npm install axios
+
+E para a aplicação das atualizações, iremos contar com um ícone para o nosso carrinho
+Por isso devemos instalar o phosphor para a aplicação do ícone:
+
+npm i phosphor-react
+
+Para a funcionalidade do carrinho será instalado
+
+npm i @radix-ui/react-dialog
+
+Para darmos continuidade as novas atualizações de nossa plicação, devemos desinstalar
+o carousel que estava mos utilizando até agora, ou seja, vamos remover da aplicação o
+keen-slider com o seguinte comando
+
+npm remove keen-slider
+
+Uma fez feito a desinstalação do Keen-slider, devemos utilizar o carousel do pacote
+embla, logo iremos fazer o seguinte comando
+
+npm install embla-carousel-react
