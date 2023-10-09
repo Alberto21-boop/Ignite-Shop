@@ -14,6 +14,7 @@
     "@types/react-dom": "18.2.7",
     "axios": "^1.5.1",
     "embla-carousel-react": "^8.0.0-rc14",
+    "embla-carousel-vue": "^8.0.0-rc14",
     "eslint": "8.48.0",
     "eslint-config-next": "13.4.19",
     "next": "13.4.19",

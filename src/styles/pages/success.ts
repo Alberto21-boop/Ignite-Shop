@@ -1,4 +1,4 @@
-import { styled } from "..";
+import { styled } from "@stitches/react";
 
 export const SuccessContainer = styled("main", {
   display: "flex",
@@ -50,9 +50,8 @@ export const ImageContainer = styled("div", {
   width: 140,
   height: 140,
   background: "linear-gradient(180deg, #1ea483 0%, #7465d4 100%)",
-  boxShadow: "0px, 0px, 60px rgba(0,0,0,0.8)",
-  borderRadius: "50%",
-
+  boxShadow: "0px 0px 60px rgba(0, 0, 0, 0.8)",
+  borderRadius: "50% !important",
   position: "relative",
 
   display: "flex",
