@@ -42,6 +42,8 @@ o carousel que estava mos utilizando até agora, ou seja, vamos remover da aplic
 keen-slider com o seguinte comando
 
 npm remove keen-slider
+npm uninstall keen-slider
+npm uninstall keen-slider --save
 
 Uma fez feito a desinstalação do Keen-slider, devemos utilizar o carousel do pacote
 embla, logo iremos fazer o seguinte comando

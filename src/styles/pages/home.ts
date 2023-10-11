@@ -13,7 +13,7 @@ export const SliderContainer = styled("div", {
   gap: "3rem",
   margin: "0 auto",
 
-  ".embla_slide": {
+  ".embla__slide": {
     minWidth: "43.5rem",
   },
 });

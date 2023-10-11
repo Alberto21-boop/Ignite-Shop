@@ -24,6 +24,7 @@ export default function Home({ products }: HomeProps) {
     align: "start",
     skipSnaps: false,
     dragFree: true,
+    //arrastarLivre: false,
   });
 
   const { addToCart, checkIfItemAlreadyExists } = useCart();
@@ -45,7 +46,10 @@ export default function Home({ products }: HomeProps) {
       <div style={{ overflow: "hidden", width: "100%" }}>
         <HomeContainer>
           <div className="embla" ref={emblaRef}>
-            <SliderContainer className="emblar__container container">
+            <SliderContainer
+              className="emblar__container container"
+              ref={emblaRef}
+            >
               {products.map((products) => {
                 return (
                   <Link

@@ -31,7 +31,7 @@ export default function Success({
         <ImagesContainer>
           {productsImages.map((image, i) => (
             <ImageContainer key={i}>
-              <Image src={image} width={120} height={110} alt="" />
+              <Image src={image} width={120} height={110} alt="" priority />
             </ImageContainer>
           ))}
         </ImagesContainer>
