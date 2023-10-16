@@ -24,7 +24,6 @@ export default function Home({ products }: HomeProps) {
     align: "start",
     skipSnaps: false,
     dragFree: true,
-    //arrastarLivre: false,
   });
 
   const { addToCart, checkIfItemAlreadyExists } = useCart();
